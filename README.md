@@ -36,7 +36,7 @@ src/
 
 1. **Clone the repository**:
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/ahmed-gomaa003/Ecommerce-React.git
    ```
 2. **Install dependencies**:
    ```bash

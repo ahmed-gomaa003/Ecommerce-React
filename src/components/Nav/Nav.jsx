@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 
 export const Nav = () => {
   const { token } = useContext(AuthContext);
+  const navi = useNavigate();
+  function handleLogout() {
+    localStorage.removeItem("tokn");
+    navi("/Login");
+  }
   return (
     <>
       <div className=" bg-cyan-400">
@@ -21,6 +26,9 @@ export const Nav = () => {
                 <li>
                   <NavLink to="cart">Cart</NavLink>
                 </li>
+                <li>
+                  <NavLink to="brands">Brands</NavLink>
+                </li>
               </ul>
             ) : null}
           </div>
@@ -33,7 +41,9 @@ export const Nav = () => {
             <ul className="flex justify-between gap-4">
               {token ? (
                 <li>
-                  <span className="">Logout</span>
+                  <span className="cursor-pointer" onClick={handleLogout}>
+                    Logout
+                  </span>
                 </li>
               ) : (
                 <>
